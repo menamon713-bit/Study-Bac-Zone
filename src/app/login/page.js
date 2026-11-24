@@ -1,48 +1,23 @@
 import Link from "next/link";
 import InfoPage from "@/components/InfoPage";
-import styles from "./login.module.css";
 
 export default function LoginPage() {
-  const whatsappMessage = encodeURIComponent(
-    "مرحبًا، أريد الاستفسار عن موعد تفعيل تسجيل الدخول في منصة Study Bac zone."
-  );
-
   return (
-    <InfoPage
-      title="دخول الطلاب"
-      intro="ستكون هذه الصفحة بوابة الدخول إلى المساحة التعليمية بعد تفعيل نظام الحسابات."
-    >
-      <div className={styles.loginContainer}>
-        <div className={styles.loginIcon} aria-hidden="true">🔐</div>
-
-        <span className={styles.status}>تسجيل الدخول قيد التجهيز</span>
+    <InfoPage title="دخول الطلاب" intro="تصميم واجهة الدخول وتجهيز أماكن الحقول قبل ربط نظام الحسابات.">
+      <div className="login-preview">
+        <div className="login-preview-icon">🔐</div>
+        <span className="mini-label">معاينة واجهة تسجيل الدخول</span>
         <h2>أهلًا بك في Study Bac zone</h2>
-
-        <p className={styles.description}>
-          لم يتم تفعيل حسابات الطلاب أو التحقق من أكواد الدخول حتى الآن.
-          لن تحتاج إلى إدخال أي بيانات في هذه المرحلة.
-        </p>
-
-        <div className={styles.notice} role="status">
-          <strong>تنبيه:</strong>
-          لا تدخل كودًا حقيقيًا أو كلمة مرور في أي نموذج تجريبي.
-          سيتم الإعلان عن طريقة الدخول عند اكتمال النظام.
-        </div>
-
-        <div className={styles.requestBox}>
-          <h3>تريد الاستفسار عن الدخول؟</h3>
-          <p>يمكنك التواصل للاستفسار فقط. التواصل لا يعني إنشاء حساب أو إصدار كود دخول حاليًا.</p>
-          <a
-            href={`https://wa.me/201554416094?text=${whatsappMessage}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.whatsappButton}
-          >
-            الاستفسار عبر واتساب
-          </a>
-        </div>
-
-        <Link href="/" className={styles.backLink}>العودة إلى الصفحة الرئيسية</Link>
+        <p>ستستخدم هذه الصفحة كود الطالب أو وسيلة الدخول التي يعتمدها نظام الحسابات لاحقًا.</p>
+        <form className="login-preview-form">
+          <label htmlFor="student-code">كود الطالب</label>
+          <input id="student-code" placeholder="سيُفعّل بعد ربط النظام" disabled />
+          <label htmlFor="student-password">كلمة المرور</label>
+          <input id="student-password" type="password" placeholder="سيُفعّل بعد ربط النظام" disabled />
+          <button className="button-primary" type="button" disabled>تسجيل الدخول غير متاح بعد</button>
+        </form>
+        <div className="notice-banner"><span>ⓘ</span><p>لا تدخل بيانات حقيقية. هذه واجهة فقط، ولا توجد مصادقة أو جلسات أو حسابات فعالة حتى الآن.</p></div>
+        <Link href="/support" className="text-link">الانتقال إلى الدعم الفني</Link>
       </div>
     </InfoPage>
   );

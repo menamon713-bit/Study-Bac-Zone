@@ -1,6 +1,12 @@
 import InfoPage from "@/components/InfoPage";
+import CatalogExplorer from "@/components/CatalogExplorer";
+import { subjects, demoNotice } from "@/data/demo-content";
+
 export default function LibraryPage() {
-  return <InfoPage title="المكتبة التعليمية" intro="مكان الكتب والمراجع والملفات الدراسية.">
-    <div className="empty-state"><span>📚</span><h2>المكتبة قيد التجهيز</h2><p>سيتم إضافة الكتب والمواد بعد التحقق من المناهج ومصادر المحتوى وحقوق نشره.</p></div>
-  </InfoPage>;
+  return (
+    <InfoPage title="المكتبة التعليمية" intro="تصفح المواد والدروس النموذجية، وابحث عن المادة التي تريدها.">
+      <div className="notice-banner"><span>ⓘ</span><p>{demoNotice}</p></div>
+      <CatalogExplorer subjects={subjects} />
+    </InfoPage>
+  );
 }
