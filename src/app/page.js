@@ -1,10 +1,26 @@
 import Link from "next/link";
 
 const features = [
-  { icon: "📚", title: "مكتبة تعليمية", text: "مساحة منظمة للكتب والمراجع والمواد الدراسية." },
-  { icon: "✍️", title: "تقييمات وامتحانات", text: "تدريبات واختبارات لمتابعة فهم الدروس." },
-  { icon: "⏱️", title: "مؤقت المذاكرة", text: "نظّم جلسات المذاكرة وتابع وقتك." },
-  { icon: "🏆", title: "نقاط وإنجازات", text: "تابع تقدمك واجمع نقاطًا وشارات إنجاز." },
+  {
+    icon: "📚",
+    title: "المكتبة التعليمية",
+    text: "سيتم تنظيم الكتب والمراجع والمواد الدراسية بعد مراجعة المحتوى ومصادره.",
+  },
+  {
+    icon: "✍️",
+    title: "التقييمات والامتحانات",
+    text: "نظام التدريبات والاختبارات قيد التجهيز، ولن تُعرض نتائج فعلية قبل تشغيله.",
+  },
+  {
+    icon: "⏱️",
+    title: "تنظيم وقت المذاكرة",
+    text: "واجهة الأداة قيد التطوير، ولم يتم تفعيل حفظ جلسات المذاكرة أو تتبع الوقت بعد.",
+  },
+  {
+    icon: "🏆",
+    title: "النقاط والإنجازات",
+    text: "سيتم احتساب الإنجازات والنقاط بعد ربط حسابات الطلاب بنظام خلفي موثوق.",
+  },
 ];
 
 export default function HomePage() {
@@ -14,37 +30,48 @@ export default function HomePage() {
         <div className="hero-content">
           <span className="hero-label">منصتك التعليمية للبكالوريا المصرية</span>
           <h1>خلي مذاكرتك <span>أوضح،</span><br />وخطواتك أقرب لهدفك.</h1>
-          <p>مكان واحد لتنظيم دراستك، متابعة الدروس، حل التقييمات، وملاحظة تقدمك خطوة بخطوة.</p>
+          <p>
+            Study Bac zone مساحة تعليمية قيد التطوير، تهدف إلى جمع الموارد
+            الدراسية وأدوات المتابعة والتقييم في تجربة واحدة منظمة.
+          </p>
           <div className="hero-actions">
-            <Link className="button-primary" href="/login">دخول الطلاب</Link>
+            <Link className="button-primary" href="/login">صفحة دخول الطلاب</Link>
             <Link className="button-secondary" href="/about">اكتشف المنصة</Link>
           </div>
-          <div className="hero-note"><span className="note-dot"></span> للصف الأول والثاني بكالوريا</div>
+          <div className="hero-note">
+            <span className="note-dot" aria-hidden="true" />
+            للصف الأول والثاني بكالوريا المصرية
+          </div>
         </div>
-        <div className="hero-art" aria-label="بطاقة توضيحية للمنصة">
+
+        <div className="hero-art" role="img" aria-label="تصميم توضيحي لمساحة تعليمية">
           <div className="art-card art-card-main">
-            <div className="art-card-top"><span>مساحة تعلمك</span><span className="art-icon">✦</span></div>
-            <div className="art-circle">📘</div>
+            <div className="art-card-top">
+              <span>Study Bac zone</span>
+              <span className="art-icon" aria-hidden="true">✦</span>
+            </div>
+            <div className="art-circle" aria-hidden="true">📘</div>
             <h2>ابدأ بخطوة صغيرة</h2>
-            <p>درس اليوم يصنع فرقًا في تقدمك.</p>
-            <div className="fake-progress"><span></span></div>
-            <small>التقدم يظهر هنا بعد ربط حسابك</small>
+            <p>مساحة منظمة لرحلتك الدراسية.</p>
+            <div className="fake-progress" aria-hidden="true"><span /></div>
+            <small>معاينة تصميمية — لا تمثل تقدمًا دراسيًا حقيقيًا</small>
           </div>
           <div className="floating-chip chip-one">✦ تعلم باستمرار</div>
           <div className="floating-chip chip-two">✓ خطوة كل يوم</div>
         </div>
       </section>
 
-      <section className="section-block">
+      <section className="section-block" aria-labelledby="features-title">
         <div className="section-heading">
           <span className="eyebrow">ماذا ستجد هنا؟</span>
-          <h2>أدوات تساعدك في رحلتك الدراسية</h2>
-          <p>واجهة منظمة تجمع أهم أدوات المذاكرة والمتابعة في مكان واحد.</p>
+          <h2 id="features-title">أدوات تساعدك في رحلتك الدراسية</h2>
+          <p>هذه هي الخدمات المخطط لها، وحالة كل خدمة موضحة بوضوح.</p>
         </div>
         <div className="feature-grid">
           {features.map((item) => (
             <article className="feature-card" key={item.title}>
-              <span className="feature-icon">{item.icon}</span>
+              <span className="feature-icon" aria-hidden="true">{item.icon}</span>
+              <span className="feature-status">قيد التجهيز</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>
@@ -56,18 +83,26 @@ export default function HomePage() {
         <div>
           <span className="eyebrow eyebrow-light">ابدأ من صفك</span>
           <h2>اختار مرحلتك الدراسية</h2>
-          <p>سيتم عرض المواد والمسارات المعتمدة بعد إدخال المناهج ومراجعتها.</p>
+          <p>صفحات الصفوف متاحة للتعريف بالمسارات، أما المحتوى الدراسي فيُضاف بعد مراجعته.</p>
         </div>
         <div className="grade-cards">
-          <Link href="/grade/first" className="grade-card"><span>01</span><b>الصف الأول بكالوريا</b><small>عرض مساحة الصف ←</small></Link>
-          <Link href="/grade/second" className="grade-card"><span>02</span><b>الصف الثاني بكالوريا</b><small>عرض مساحة الصف ←</small></Link>
+          <Link href="/grade/first" className="grade-card">
+            <span>01</span>
+            <b>الصف الأول بكالوريا</b>
+            <small>عرض صفحة الصف ←</small>
+          </Link>
+          <Link href="/grade/second" className="grade-card">
+            <span>02</span>
+            <b>الصف الثاني بكالوريا</b>
+            <small>عرض صفحة الصف ←</small>
+          </Link>
         </div>
       </section>
 
-      <section className="trust-strip">
-        <div><b>تعلم منظم</b><span>المواد والدروس في مكان واحد</span></div>
-        <div><b>تابع تقدمك</b><span>راجع إنجازاتك ونتائجك</span></div>
-        <div><b>دعم واضح</b><span>قنوات تواصل معلنة</span></div>
+      <section className="trust-strip" aria-label="مبادئ المنصة">
+        <div><b>محتوى مُراجع</b><span>لن يُنشر محتوى دراسي قبل مراجعة مصدره.</span></div>
+        <div><b>وضوح الحالة</b><span>نوضح الخدمات المتاحة وتلك التي ما زالت قيد التطوير.</span></div>
+        <div><b>قنوات دعم معلنة</b><span>يمكنك الوصول إلى وسائل التواصل من صفحة الدعم.</span></div>
       </section>
     </>
   );
